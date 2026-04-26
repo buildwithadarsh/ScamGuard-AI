@@ -1,0 +1,16 @@
+python-dotenv
+
+langchain-openai
+
+
+# langchain-openai
+# langchain-google-genai
+langchain
+uv
+pydantic
+pandas
+
+
+
+
+# creating virtual env: conda create -n prompt_engineering python=3.11

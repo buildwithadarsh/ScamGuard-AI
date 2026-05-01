@@ -1,0 +1,8 @@
+email,label,intent_type,flag_reason
+Reminder: Your gas cylinder booking is confirmed.,Not Scam,Service Reminder,Legitimate communication
+Power cut scheduled from 2 PM to 4 PM tomorrow.,Not Scam,Informational Alert,Legitimate communication
+Act now! Your bank account is under threat.,Scam,Urgency,Identified as Urgency
+"₹500 has been debited from your account. Available balance: ₹12,340.",Not Scam,Transactional Notification,Legitimate communication
+"Congratulations! You've won ₹50,000. Click to claim your prize.",Scam,Reward Manipulation,Identified as Reward Manipulation
+We have restricted your UPI services. Update now.,Scam,Account Suspension,Identified as Account Suspension
+Order #12456 has been shipped and will be delivered by 6 July.,Not Scam,Order Confirmation,Legitimate communication

@@ -1,11 +1,12 @@
 from app.utils.clean_data import pre_process, pre_process_2, post_process
 from app.services.llm_service import get_openai_llm, get_chat_prompt, get_chat_prompt2
+from app.scoring.scoring import run_scoring
 
 from langchain_core.runnables import RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
 
 
-email = """Email:
+email_text = """Email:
         Congratulation! you have won $5,000,000 in an international lottery.
         Click this link immediately to claim your prize.
         The prize is valid only for next 15 minutes.
@@ -35,5 +36,9 @@ email = """Email:
 
 # 3. we have introduced the pydantic class to restrict the output format form LLM
 chain = RunnableLambda(pre_process)|RunnableLambda(get_chat_prompt)|get_openai_llm()|RunnableLambda(post_process)
-print(chain.invoke(email))
+# print(chain.invoke(email))
 
+email=""
+file_path = 'data/dataset-2.csv'
+# print(run_scoring(chain, email_text))
+print(run_scoring(chain, email, file_path=file_path))

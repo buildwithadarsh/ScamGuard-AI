@@ -3,7 +3,7 @@ import os
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
-from app.model.SpamDetectionOutput import SpamDetectionOutput
+from app.schemas.spam_schema import SpamDetectionOutput
 
 from app.utils.files_loader import load_system_prompt
 

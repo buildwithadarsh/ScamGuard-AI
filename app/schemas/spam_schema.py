@@ -7,4 +7,4 @@ class SpamDetectionOutput(BaseModel):
     risk_level: str = Field(description= "risk level could be: low, medium, high")
     confidence_score: int = Field(description = "This is the confidence score for a email detection as spam. the higher the score the  higher chances of this being a spam.")
     explanation: str = Field(description = "A short description of the email why its spam or not a spam, in simple language")
-    
+     

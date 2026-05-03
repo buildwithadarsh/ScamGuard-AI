@@ -1,13 +1,14 @@
 import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+
 import streamlit as st
 import pandas as pd
 
 # import your backend pipeline
 from app.services.pipeline import scamguard_chain 
-
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-sys.path.append(str(ROOT_DIR))
 
 st.set_page_config(page_title="ScamGuard AI", layout="centered")
 
@@ -21,6 +22,7 @@ user_input = st.text_area("Paste your message/email here")
 uploaded_file = st.file_uploader("Or upload a CSV or Excel file", type=["csv", "xlsx"])
 
 input_text = ""
+df = None
 
 if uploaded_file is not None:
     if uploaded_file.name.endswith(".csv"):

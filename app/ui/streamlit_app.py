@@ -18,6 +18,25 @@ st.write("Detect scams in messages, emails, or files")
 # ---- TEXT INPUT ----
 user_input = st.text_area("Paste your message/email here")
 
+# ---- RUN BUTTON ----
+if st.button("Analyze", key="analyze_text_btn"):
+
+    if not input_text.strip():
+        st.warning("Please enter some text.")
+    else:
+        with st.spinner("Analyzing..."):
+            try:
+                result = scamguard_chain.invoke(input_text)
+
+                st.success("Analysis Complete")
+                print(f"result: {result}")
+
+                # Pretty output
+                st.json(result)
+
+            except Exception as e:
+                st.error(f"Error: {str(e)}")
+
 # ---- FILE UPLOAD ----
 uploaded_file = st.file_uploader("Or upload a CSV or Excel file", type=["csv", "xlsx"])
 
@@ -64,22 +83,3 @@ if st.button("Analyze File", key="analyze_file_btn") and df is not None:
     st.dataframe(df)
 elif user_input:
     input_text = user_input
-
-# ---- RUN BUTTON ----
-if st.button("Analyze", key="analyze_text_btn"):
-
-    if not input_text.strip():
-        st.warning("Please enter some text.")
-    else:
-        with st.spinner("Analyzing..."):
-            try:
-                result = scamguard_chain.invoke(input_text)
-
-                st.success("Analysis Complete")
-                print(f"result: {result}")
-
-                # Pretty output
-                st.json(result)
-
-            except Exception as e:
-                st.error(f"Error: {str(e)}")
